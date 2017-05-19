@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @my_thread.title %>
+</p>
+
+<%= link_to 'Edit', edit_my_thread_path(@my_thread) %> |
+<%= link_to 'Back', my_threads_path %>
+
+<div class="responses">
+  <ul>
+    <%= @responses.each do |response| %>
+    <li><%= response.content %></li>
+    <% end %>
+  </ul>
+</div>
+
+<div class="make-response">
+  <%= form_for(@my_threadresponse, url: my_thread_responses_path(@my_thread.id), html: {method: "ppst"}) do |f| %>
+    <%= f.text_field :content %>
+    <%= f.submit "保存" %>
+  <% end %>
+</div>
