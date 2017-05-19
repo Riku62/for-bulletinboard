@@ -17,7 +17,7 @@
 </div>
 
 <div class="make-response">
-  <%= form_for(@my_threadresponse, url: my_thread_responses_path(@my_thread.id), html: {method: "ppst"}) do |f| %>
+  <%= form_for @response do |f| %>
     <%= f.text_field :content %>
     <%= f.submit "保存" %>
   <% end %>

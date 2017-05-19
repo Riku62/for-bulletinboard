@@ -1,4 +1,6 @@
 class ResponsesController < ApplicationController
+
+  #POST /my_threads/:my_thread_id/responses
   def create
     @my_thread = MyThread.find(params[:my_thread_id])
     @response = @my_thread.responses.build(response_params)
