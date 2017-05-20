@@ -11,7 +11,7 @@ class MyThreadsController < ApplicationController
   # GET /my_threads/1.json
   def show
     @responses = @my_thread.responses
-    @response = Response.new
+    @response = @my_thread.responses.build(response_params)
   end
 
   # GET /my_threads/new
