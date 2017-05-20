@@ -1,4 +1,3 @@
 bin/
 tmp/
-*.json
-.README.md
+.idea/
