@@ -10,22 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170518050512) do
+ActiveRecord::Schema.define(version: 20170518050445) do
 
   create_table "my_threads", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.bigint "my_threads_id"
     t.string "title", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["my_threads_id"], name: "index_my_threads_on_my_threads_id"
   end
 
   create_table "responses", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.bigint "my_thread_id"
     t.text "content", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "my_thread_id"
+    t.index ["my_thread_id"], name: "index_responses_on_my_thread_id"
   end
 
-  add_foreign_key "my_threads", "my_threads", column: "my_threads_id"
+  add_foreign_key "responses", "my_threads"
 end

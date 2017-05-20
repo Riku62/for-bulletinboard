@@ -5,7 +5,7 @@
   <%= @my_thread.title %>
 </p>
 
-<%= link_to 'Edit', edit_my_thread_path(@my_thread) %> |
+<%= link_to 'Edit', edit_my_thread_path(@my_thread.id) %> |
 <%= link_to 'Back', my_threads_path %>
 
 <div class="responses">
@@ -17,7 +17,7 @@
 </div>
 
 <div class="make-response">
-  <%= form_for @response do |f| %>
+  <%= form_for([:my_thread, @response]) do |f| %>
     <%= f.text_field :content %>
     <%= f.submit "保存" %>
   <% end %>
