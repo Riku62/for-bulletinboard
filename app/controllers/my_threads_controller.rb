@@ -10,8 +10,7 @@ class MyThreadsController < ApplicationController
   # GET /my_threads/1
   # GET /my_threads/1.json
   def show
-    @responses = @my_thread.responses
-    @response = @my_thread.responses.build(response_params)
+    @response = @my_thread.responses.build
   end
 
   # GET /my_threads/new

@@ -10,15 +10,20 @@
 
 <div class="responses">
   <ul>
-    <%= @responses.each do |response| %>
-    <li><%= response.content %></li>
+    <%= @my_thread.responses.each do |response| %>
+    <li>
+      <%= response.content %>
+      <%= response.id %>
+      <%= link_to "Edit", edit_my_thread_response_path([@my_thread, response]), class: "btn" %>
+      <%= link_to "Delete", my_thread_response_path([@my_thread, response]), method: :delete, data: {confirm: "Are you sure?"}, class: "btn" %>
+    </li>
     <% end %>
   </ul>
 </div>
 
 <div class="make-response">
-  <%= form_for([:my_thread, @response]) do |f| %>
+  <%= form_for([@my_thread, @response]) do |f| %>
     <%= f.text_field :content %>
-    <%= f.submit "保存" %>
+    <%= f.submit "投稿" %>
   <% end %>
 </div>
